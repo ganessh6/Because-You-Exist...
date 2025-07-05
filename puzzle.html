@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Love Puzzle Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Quicksand:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      margin: 0;
+      padding: 30px 10px;
+      background: radial-gradient(ellipse at bottom, #1B1F3B 0%, #0A0C1A 100%);
+      font-family: 'Quicksand', sans-serif;
+      color: #FFD6EC;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #FF69B4;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #FF69B4;
+    }
+    .question-block {
+      margin: 20px 0;
+    }
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    .btn {
+      background-color: #FF69B4;
+      color: white;
+      padding: 10px 20px;
+      margin: 6px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    }
+    .btn:hover {
+      background-color: #FF85C1;
+    }
+    .result {
+      font-family: 'Great Vibes', cursive;
+      margin-top: 40px;
+      font-size: 2em;
+      display: none;
+      color: #FFE4F3;
+      text-shadow: 0 0 10px #FF69B4, 0 0 20px #FFD6EC;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .final-link {
+      margin-top: 20px;
+      display: none;
+    }
+    .celebrate {
+      display: none;
+      font-size: 3em;
+      margin-top: 20px;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .heart {
+      position: fixed;
+      font-size: 16px;
+      color: #FF69B4;
+      pointer-events: none;
+      animation: twinkle 1.6s ease-out forwards;
+      z-index: 9999;
+      text-shadow: 0 0 4px #FFD6EC, 0 0 8px #FF69B4;
+    }
+    @keyframes twinkle {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.5) rotate(10deg); }
+      100% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    }
+</style>
+
+<style>
+  .random-star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+    opacity: 0;
+    animation: fadeStar 2s ease-in-out forwards;
+    z-index: 0;
+  }
+  @keyframes fadeStar {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
+</style>
+
+</head>
+<body>
+<h1>Love Puzzle Challenge</h1>
+<div class="question-block" id="q1">
+<div class="question">What was the first thing I noticed about you?</div>
+<button class="btn" onclick="checkAnswer(1, this, 'Your smile')">Your smile</button>
+<button class="btn" onclick="checkAnswer(1, this, 'Your voice')">Your voice</button>
+<button class="btn" onclick="checkAnswer(1, this, 'Your eyes')">Your eyes</button>
+</div>
+<div class="question-block" id="q2" style="display:none;">
+<div class="question">What makes our love special?</div>
+<button class="btn" onclick="checkAnswer(2, this, 'It’s forever')">It’s forever</button>
+<button class="btn" onclick="checkAnswer(2, this, 'It’s rare')">It’s rare</button>
+<button class="btn" onclick="checkAnswer(2, this, 'It’s written in stars')">It’s written in stars</button>
+</div>
+<div class="question-block" id="q3" style="display:none;">
+<div class="question">What was the first intimacy between US?</div>
+<button class="btn" onclick="checkAnswer(3, this, 'Holdng Hands')">Holdng Hands</button>
+<button class="btn" onclick="checkAnswer(3, this, 'Hug')">Hug</button>
+<button class="btn" onclick="checkAnswer(3, this, 'Holding Your waist')">Holding Your waist</button>
+</div>
+<div class="celebrate" id="celebrate">🎉🎂✨</div>
+<div class="result" id="result">Love like ours is <strong>Forever 💖</strong></div>
+<div class="final-link" id="final-link">
+<a href="secret.html" style="text-decoration: none;">
+<button onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.05)'" style="
+        margin-top: 20px;
+        padding: 12px 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        background-color: #FF69B4;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        transition: transform 0.3s ease;
+      ">
+        Open the Letter My Soul Wrote Just for You 💌
+      </button>
+</a>
+</div>
+<audio id="click-sound" preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d2bcdd97f1.mp3"></audio>
+<script>
+  const answers = {
+    1: "Your smile",
+    2: "It’s forever",
+    3: "Holdng Hands"
+  };
+  function checkAnswer(qNum, btn, value) {
+    const click = document.getElementById("click-sound");
+    click.pause();
+    click.currentTime = 0;
+    click.play();
+
+    if (value === answers[qNum]) {
+      document.getElementById("q" + qNum).style.display = "none";
+      const next = document.getElementById("q" + (qNum + 1));
+      if (next) {
+        next.style.display = "block";
+      } else {
+        document.getElementById("celebrate").style.display = "block";
+        document.getElementById("result").style.display = "block";
+        document.getElementById("final-link").style.display = "block";
+      }
+    } else {
+      btn.innerText = "Try Again 💔";
+    }
+  }
+  const heartColors = ['#FF69B4', '#FFD6EC', '#FFB6C1', '#FFC0CB', '#FF99CC'];
+  document.addEventListener('mousemove', e => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤';
+    heart.style.left = (e.clientX - 6) + 'px';
+    heart.style.top = (e.clientY - 6) + 'px';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1600);
+  });
+  document.body.style.cursor = 'url("https://cdn-icons-png.flaticon.com/512/1077/1077086.png") 16 16, auto';
+</script>
+
+<script>
+  function spawnStar() {
+    const star = document.createElement('div');
+    star.className = 'random-star';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.animationDuration = (1.5 + Math.random()).toFixed(2) + 's';
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 2000);
+  }
+  setInterval(spawnStar, 300);
+</script>
+
+</body>
+</html>

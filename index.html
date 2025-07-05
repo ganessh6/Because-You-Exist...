@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanju's Storybook</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Quicksand:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at bottom, #1B1F3B 0%, #0A0C1A 100%);
+      overflow: hidden;
+      font-family: 'Quicksand', sans-serif;
+      color: #FFD6EC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      flex-direction: column;
+      position: relative;
+    }
+    .stars, .twinkling {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+    }
+    .stars {
+      background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
+    }
+    .twinkling {
+      background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/twinkling.png') repeat;
+      animation: moveTwinkBack 200s linear infinite;
+    }
+    @keyframes moveTwinkBack {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+    .content {
+      z-index: 2;
+      position: relative;
+      animation: fadeIn 2s ease-in;
+      max-width: 90%;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #FF69B4;
+      margin: 0;
+      z-index: 3;
+      text-shadow: 0 0 6px #FF69B4, 0 0 12px #FFE4F3;
+      animation: pulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from {
+        text-shadow: 0 0 4px #FF69B4, 0 0 8px #FFE4F3;
+      }
+      to {
+        text-shadow: 0 0 2px #FF69B4, 0 0 4px #FFE4F3;
+      }
+    }
+    .twinkle {
+      position: absolute;
+      font-size: 1.5em;
+      color: #FFE4F3;
+      pointer-events: none;
+      animation: sparkle 6s ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes sparkle {
+      0% { opacity: 0; transform: translateY(20px); }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+    .start-button {
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #FF69B4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+    .start-button:hover {
+      transform: scale(1.05);
+    }
+  
+  .glow-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2em;
+    text-shadow: 0 0 8px #FF69B4, 0 0 16px #FFD6EC, 0 0 24px #FF69B4;
+    animation: titlePulse 4s ease-in-out infinite alternate;
+  }
+  @keyframes titlePulse {
+    0% { text-shadow: 0 0 4px #FF69B4, 0 0 10px #FFD6EC; }
+    100% { text-shadow: 0 0 10px #FF69B4, 0 0 24px #FFE4F3; }
+  }
+
+  .sub-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    color: #FFE4F3;
+    text-shadow: 0 0 6px #FF69B4, 0 0 12px #FFD6EC;
+    animation: heartbeat 2.5s infinite ease-in-out;
+    margin-top: 12px;
+  }
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+</style>
+
+<style>
+  .random-star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+    opacity: 0;
+    animation: fadeStar 2s ease-in-out forwards;
+    z-index: 0;
+  }
+  @keyframes fadeStar {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
+</style>
+
+</head>
+<body>
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="content">
+<h1 class="glow-title">Every Chapter Starts with You.</h1>
+<p class="sub-quote">Because you exist, Sanju...</p>
+<button class="start-button" onclick="location.href='birthday.html'">Touch the Story Written in Stars ✨</button>
+</div>
+<div class="twinkle" style="top:73vh; left:34vw; animation-delay:0s;">✨</div><div class="twinkle" style="top:80vh; left:10vw; animation-delay:2s;">✨</div><div class="twinkle" style="top:53vh; left:6vw; animation-delay:4s;">✨</div><div class="twinkle" style="top:80vh; left:54vw; animation-delay:6s;">✨</div><div class="twinkle" style="top:17vh; left:45vw; animation-delay:8s;">✨</div><div class="twinkle" style="top:49vh; left:62vw; animation-delay:10s;">✨</div>
+<style>
+  .heart {
+    position: fixed;
+    font-size: 16px;
+    color: #FF69B4;
+    pointer-events: none;
+    animation: twinkle 1.6s ease-out forwards;
+    z-index: 9999;
+    text-shadow: 0 0 4px #FFD6EC, 0 0 8px #FF69B4;
+  }
+  @keyframes twinkle {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5) rotate(10deg); }
+    100% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+  }
+
+  .sub-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    color: #FFE4F3;
+    text-shadow: 0 0 6px #FF69B4, 0 0 12px #FFD6EC;
+    animation: heartbeat 2.5s infinite ease-in-out;
+    margin-top: 12px;
+  }
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+</style>
+<script>
+  const colors = ['#FF69B4', '#FFD6EC', '#FFB6C1', '#FFC0CB', '#FF99CC'];
+  document.addEventListener('mousemove', e => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤';
+    heart.style.left = (e.clientX - 6) + 'px';
+    heart.style.top = (e.clientY - 6) + 'px';
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1600);
+  });
+
+  document.body.style.cursor = 'url("https://cdn-icons-png.flaticon.com/512/1077/1077086.png") 16 16, auto';
+</script>
+
+<script>
+  function spawnStar() {
+    const star = document.createElement('div');
+    star.className = 'random-star';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.animationDuration = (1.5 + Math.random()).toFixed(2) + 's';
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 2000);
+  }
+  setInterval(spawnStar, 300);
+</script>
+
+</body>
+</html>

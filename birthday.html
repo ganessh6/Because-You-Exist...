@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanju's Birthday Chapter</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Quicksand:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at bottom, #1B1F3B 0%, #0A0C1A 100%);
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      color: #FFD6EC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #FF69B4;
+      margin-top: 40px;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes titleGlow {
+      from { text-shadow: 0 0 4px #FF69B4, 0 0 10px #FFD6EC; }
+      to { text-shadow: 0 0 8px #FF69B4, 0 0 16px #FFE4F3; }
+    }
+    .subline {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5em;
+      color: #FFE4F3;
+      animation: heartbeat 2.5s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .birthday-date {
+      margin: 20px 0;
+      font-size: 1.2em;
+      color: #FFB6C1;
+      text-shadow: 0 0 6px #FF69B4;
+    }
+    .poem {
+      max-width: 80%;
+      margin-top: 30px;
+      font-size: 1.1em;
+      font-style: italic;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    }
+    .start-button {
+      margin: 40px auto;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #FF69B4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .start-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+
+<style>
+  .random-star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+    opacity: 0;
+    animation: fadeStar 2s ease-in-out forwards;
+    z-index: 0;
+  }
+  @keyframes fadeStar {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+  }
+</style>
+
+</head>
+<body>
+<style>
+  .heart {
+    position: fixed;
+    font-size: 16px;
+    color: #FF69B4;
+    pointer-events: none;
+    animation: twinkle 1.6s ease-out forwards;
+    z-index: 9999;
+    text-shadow: 0 0 4px #FFD6EC, 0 0 8px #FF69B4;
+  }
+  @keyframes twinkle {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5) rotate(10deg); }
+    100% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+  }
+</style>
+<script>
+  const heartColors = ['#FF69B4', '#FFD6EC', '#FFB6C1', '#FFC0CB', '#FF99CC'];
+  document.addEventListener('mousemove', e => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤';
+    heart.style.left = (e.clientX - 6) + 'px';
+    heart.style.top = (e.clientY - 6) + 'px';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1600);
+  });
+  document.body.style.cursor = 'url("https://cdn-icons-png.flaticon.com/512/1077/1077086.png") 16 16, auto';
+</script>
+ 
+<h1>YOU                                  ARE                              MINE</h1>
+<div class="subline">In every lifetime, in every heartbeat.</div>
+<div class="birthday-date">17 Years Since the World Got Brighter — <br/> The Day the Universe Whispered Your Name : <br/>July 6, 2008 💗 <br/>
+"Be my July-soft, warm, and kind, <br/>
+ A peaceful place where hearts unwind."</div>
+<div class="poem">
+    Just like a sunrise, your smile begins my every day.<br/>
+    Just like a heartbeat, your name is the rhythm I pray.<br/>
+    To the world, you're Sanjali...<br/>
+    But to me, you're Sanju — my forever, my always. 💖<br/><br/>
+    On your 17th, I don’t just celebrate your birthday— I celebrate every moment this world has had you in it.<br/><br/>
+Happy Birthday SANJU...<br/>
+I HOPE THIS BIRTHDAY WILL BE A LITTLE SPECIAL ...<br/>
+A little effort to make this 17 birthday memorial for youuu...<br/>
+YOU are 17 now sanju...<br/>
+My Girl has Grown Up...
+My sanju has turned 17...!<br/>
+The girl I have fallen for was a 13 year old little girl and NOW see you are 17 !!!<br/><br/>
+I AM NOT GOING TO POUR ALL MY FEELINGS HERE ONLY!!!<br/>
+          
+
+I LOVE YOU : ENJOY THE REST!!!
+
+
+
+  </div>
+<button class="start-button" onclick="location.href='timeline.html'">Continue the Story 📖</button>
+<audio autoplay="" loop="">
+<source src="https://cdn.pixabay.com/download/audio/2023/04/06/audio_fea5740172.mp3?filename=soft-romantic-piano-142893.mp3" type="audio/mpeg"/>
+</audio>
+
+<script>
+  function spawnStar() {
+    const star = document.createElement('div');
+    star.className = 'random-star';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.animationDuration = (1.5 + Math.random()).toFixed(2) + 's';
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 2000);
+  }
+  setInterval(spawnStar, 300);
+</script>
+
+</body>
+</html>
